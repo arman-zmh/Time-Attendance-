@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت کاربر</title>
+</head>
+<body style="direction: rtl; font-family: sans-serif; margin: 30px;">
+
+    <h2>ثبت کاربر جدید</h2>
+
+    {% if success %}
+        <p style="color: green;">{{ success }}</p>
+        <pre>{{ response }}</pre>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div>
+            <label>شناسه:</label><br>
+            <input type="text" name="user_id" required>
+        </div>
+        <br>
+
+        <div>
+            <label>نام:</label><br>
+            <input type="text" name="name" required>
+        </div>
+        <br>
+
+        <div>
+            <label>سمت:</label><br>
+            <input type="text" name="position" required>
+        </div>
+        <br>
+
+        <div>
+            <label>تصویر:</label><br>
+            <input type="file" name="image_file" accept="image/*" required>
+        </div>
+        <br>
+
+        <button type="submit">ثبت</button>
+    </form>
+
+</body>
+</html>
